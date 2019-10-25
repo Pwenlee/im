@@ -4,8 +4,22 @@ server:
 spring:
   application:
     name: user-service
+  data:
+    mongodb:
+      host: localhost   #同127.0.0.1
+      port: 27017
+      database: dev    #指定操作的数据库
+  datasource:
+    url: jdbc:oracle:thin:@//127.0.0.1:1521/XE
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    username: c##admin
+    password: admin
 
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8001/eureka/
+
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-aliases-package: com.lee.im.user.api.entity
